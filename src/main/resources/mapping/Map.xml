@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ssm.mapper.MapMaper">
+    <select id="findMapById" parameterType="int" resultType="cn.ssm.model.Map">
+        select * from map where id = #{id}
+    </select>
+
+    <resultMap id="resultMapList" type="cn.ssm.model.Map">
+        <id column="id" property="id" />
+        <result column="latitude" property="latitude"/>
+        <result column="longitude" property="longitude"/>
+    </resultMap>
+    <select id="findMapList" resultMap="resultMapList">
+        select * from map
+    </select>
+</mapper>
